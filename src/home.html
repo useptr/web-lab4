@@ -5,22 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
     <title>Главная</title>
+    <link href="style.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script>
 
         $(document).ready(function(){
-            // Обработчик изменений в первом списке
+            
             $('#first_dropdown').change(function(){
+                $('#second_dropdown').empty();
                 var selected = $(this).val(); // Получаем выбранное значение
                 // Выполняем AJAX запрос для получения данных для второго списка
                 $.ajax({
-                    url: 'options.php', // Замените на путь к вашему скрипту, который обрабатывает запрос
-                    method: 'GET',
+                    type: 'GET',
+                    url: 'options.php', // Замените на путь к вашему скрипту, который обрабатывает запрос                    
                     data: {selected_option: selected}, // Передаем выбранное значение первого списка
                     success: function(response){
-                        $('#second_dropdown').html(response); // Обновляем содержимое второго списка
+                        // $('#second_dropdown').html(response); // Обновляем содержимое второго списка
+                        $('#second_dropdown').append(response);
+                    }
+                });
+            });
+
+            $('#second_dropdown').change(function(){
+                $('.auth-content').remove();
+                var selected = $(this).val();
+                $.ajax({
+                    type: 'GET',
+                    url: 'contents.php',                  
+                    data: {selected_option: selected},
+                    success: function(response){
+                        $('.content').append(response);
                     }
                 });
             });
@@ -38,13 +54,21 @@
 </head>
 <body>
     <nav>
+<<<<<<< HEAD
         <div class="user-login ">Гость</div>
         <div class="sign_in "><a href="sign_in.html">Авторизация</a></div>
         <div class="sign_up "><a href="sign_up.html">Регистрация</a></div>
         <div class="logout "><a href="logout.php">Выход</a></div>
+=======
+        <div class="user-login">Гость</div>
+        <div class="sign_in"><a href="sign_in.html">Авторизация</a></div>
+        <div class="sign_up"><a href="sign_up.html">Регистрация</a></div>
+        <!-- <div class="logout"><a href="logout.php">Выход</a></div> -->
+>>>>>>> a53d409425d43e29381617356d220cee08822d44
     </nav>
     <div class="container">
     <div class="content">
+<<<<<<< HEAD
         <div class="dropdown">
         <select id="first_dropdown">
             <div class="content">
@@ -58,6 +82,19 @@
             <div class="content">
             <option value="">Выберите сначала опцию из первого списка</option>
             </div>
+=======
+        <div class="greeting">Добро пожаловать на страницу для гостя</div>
+        <select id="first_dropdown">
+            <option value="">Выберите язык</option>
+            <option value="C++">C++</option>
+            <option value="Java">Java</option>
+            <option value="Swift">Swift</option>
+            <option value="Go">Go</option>
+        </select>
+
+        <select id="second_dropdown">
+            <!-- <option value=""></option> -->
+>>>>>>> a53d409425d43e29381617356d220cee08822d44
         </select>
     </div>
     </div>
@@ -65,11 +102,15 @@
 </body>
 <script>
     $(document).ready(function() {
-        let username = "Гость!!!";
+        let username = "Гость";
         if ( $.cookie('user') != null ) {
             username = $.cookie('user');
+            $(".user-login").text(username);
+            $('.sign_in').remove();
+            $('.sign_up').remove();
+            $('.content').append("<div class=\"logout\"><a href=\"logout.php\">Выход</a></div>");
+            $('.greeting').text("Добро пожаловать, " + username);
         }
-        $(".user-login").text(username);
     });
 </script>
 </html>
