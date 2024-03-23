@@ -29,15 +29,4 @@ declare(strict_types=1);
 // echo $result;
 // var_dump($result);
 // echo "Hello";
-?>
 
-<form action="login.php" method="post">
-        <h2>Авторизация</h2>
-        <div>
-        <input type="text" name="login" placeholder="Имя пользователя" required>
-        </div>
-        <div>
-        <input type="password" name="password" placeholder="Пароль" required>
-        </div>
-        <input type="submit" value="Войти">
-    </form>
