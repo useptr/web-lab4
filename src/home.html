@@ -32,6 +32,7 @@
         nav div {
             margin: 0 10px 0 0;
         }
+    
     </style>
 </head>
 <body>
@@ -53,6 +54,7 @@
         </select>
     </div>
 </body>
+<<<<<<< HEAD
 <script>
     $(document).ready(function() {
         let username = "Гость!!!";
@@ -61,5 +63,15 @@
         }
         $(".user-login").text(username);
     });
+=======
+<script> 
+    $(document).ready(function() { 
+        let username = "Гость!!!"; 
+        if ( $.cookie('user') != null ) { 
+            username = $.cookie('user'); 
+        } 
+        $(".user-login").text(username); 
+    }); 
+>>>>>>> 5f44187cd2cb115ead64a47f31f0c1ad97902bb5
 </script>
 </html>
