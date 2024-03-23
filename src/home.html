@@ -54,35 +54,13 @@
 </head>
 <body>
     <nav>
-<<<<<<< HEAD
-        <div class="user-login ">Гость</div>
-        <div class="sign_in "><a href="sign_in.html">Авторизация</a></div>
-        <div class="sign_up "><a href="sign_up.html">Регистрация</a></div>
-        <div class="logout "><a href="logout.php">Выход</a></div>
-=======
         <div class="user-login">Гость</div>
         <div class="sign_in"><a href="sign_in.html">Авторизация</a></div>
         <div class="sign_up"><a href="sign_up.html">Регистрация</a></div>
         <!-- <div class="logout"><a href="logout.php">Выход</a></div> -->
->>>>>>> a53d409425d43e29381617356d220cee08822d44
     </nav>
     <div class="container">
     <div class="content">
-<<<<<<< HEAD
-        <div class="dropdown">
-        <select id="first_dropdown">
-            <div class="content">
-            <option value="">Выберите сервер</option>
-            <option value="option1"></option>
-            <option value="option2"></option>
-            </div>
-        </select>
-
-        <select id="second_dropdown">
-            <div class="content">
-            <option value="">Выберите сначала опцию из первого списка</option>
-            </div>
-=======
         <div class="greeting">Добро пожаловать на страницу для гостя</div>
         <select id="first_dropdown">
             <option value="">Выберите язык</option>
@@ -94,7 +72,6 @@
 
         <select id="second_dropdown">
             <!-- <option value=""></option> -->
->>>>>>> a53d409425d43e29381617356d220cee08822d44
         </select>
     </div>
     </div>
@@ -108,7 +85,7 @@
             $(".user-login").text(username);
             $('.sign_in').remove();
             $('.sign_up').remove();
-            $('.content').append("<div class=\"logout\"><a href=\"logout.php\">Выход</a></div>");
+            $('nav').append("<div class=\"logout\"><a href=\"logout.php\">Выход</a></div>");
             $('.greeting').text("Добро пожаловать, " + username);
         }
     });
