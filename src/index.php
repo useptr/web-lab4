@@ -28,19 +28,4 @@ if ($result->num_rows > 0) {
 // echo $result;
 // var_dump($result);
 // echo "Hello";
-<<<<<<< HEAD
 ?>
-=======
-?>
-
-<form action="login.php" method="post">
-        <h2>Авторизация</h2>
-        <div>
-        <input type="text" name="login" placeholder="Имя пользователя" required>
-        </div>
-        <div>
-        <input type="password" name="password" placeholder="Пароль" required>
-        </div>
-        <input type="submit" value="Войти">
-    </form>
->>>>>>> 5f44187cd2cb115ead64a47f31f0c1ad97902bb5
