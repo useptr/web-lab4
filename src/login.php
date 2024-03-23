@@ -1,7 +1,6 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
+if (isset($_POST['login']) && isset($_POST['password'])) {
     $login = $_POST['login'];
     $password = $_POST['password'];
     $dbhost = "mysql";
@@ -9,21 +8,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dbpass = "root";
     $dbname = "app";
 
-    $conn = new mysqli($dbhost, $dbuser, $dbpass,$dbname);
+    $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
     if ($conn->connect_error) {
         die ("Connection failed:". $conn->connect_error);
     }
 
-    $query = "SELECT *FROM users WHERE login = '$login' AND password = '$password'";
+    $query = "SELECT * FROM users WHERE login = '$login' AND password = '$password'";
 
     $result = $conn->query($query);
 
-    if ($result->num_rows > 0) {
-        header("Success");
+    if ($result->num_rows > 0) {    
+        setcookie("user", "$login", time()+3600, "/");
+        header('Location: home.html');
         exit();
     } else {
-        //failed
         exit();
     }
     $conn->close();
