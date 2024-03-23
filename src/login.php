@@ -2,7 +2,9 @@
 
 if (isset($_POST['login']) && isset($_POST['password'])) {
     $login = $_POST['login'];
+    $login = trim($login);
     $password = $_POST['password'];
+    $password = trim($password);
     $dbhost = "mysql";
     $dbuser = "root";
     $dbpass = "root";
@@ -21,10 +23,12 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
     if ($result->num_rows > 0) {    
         setcookie("user", "$login", time()+3600, "/");
         header('Location: home.html');
-        $conn->close();
-        exit();
     } else {
-        $conn->close();
-        exit();
+        header('Location: sign_up.html');
     }
+
+    $conn->close();
+    exit();
 }
+header('Location: sign_up.html');
+exit();
