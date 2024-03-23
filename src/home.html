@@ -36,7 +36,7 @@
                     url: 'contents.php',                  
                     data: {selected_option: selected},
                     success: function(response){
-                        $('.content').append(response);
+                        $('.text').append(response);
                     }
                 });
             });
@@ -74,6 +74,7 @@
             <!-- <option value=""></option> -->
         </select>
     </div>
+    <div class="text"></div>
     </div>
 </div>
 </body>
