@@ -14,17 +14,12 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
         die ("Connection failed:". $conn->connect_error);
     }
 
-    $query = "SELECT * FROM users WHERE login = '$login' AND password = '$password'";
+    $query = "INSERT INTO users(login, password) VALUES ('$login ', '$password')";
 
-    $result = $conn->query($query);
-
-    if ($result->num_rows > 0) {    
-        setcookie("user", "$login", time()+3600, "/");
-        header('Location: home.html');
-        $conn->close();
-        exit();
+    if ($conn->query($query) === TRUE) {
+        echo "Регистрация прошла успешно.";
     } else {
-        $conn->close();
-        exit();
+        echo "Ошибка при регистрации: " . $conn->error;
     }
+    $conn->close();
 }
