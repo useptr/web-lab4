@@ -13,6 +13,7 @@
         $(document).ready(function(){
             
             $('#first_dropdown').change(function(){
+                $('#second_dropdown').empty();
                 var selected = $(this).val(); // Получаем выбранное значение
                 // Выполняем AJAX запрос для получения данных для второго списка
                 $.ajax({
@@ -58,6 +59,7 @@
         <!-- <div class="logout"><a href="logout.php">Выход</a></div> -->
     </nav>
     <div class="content">
+        <div class="greeting">Добро пожаловать на страницу для гостя</div>
         <select id="first_dropdown">
             <option value="">Выберите язык</option>
             <option value="C++">C++</option>
@@ -80,6 +82,7 @@
             $('.sign_in').remove();
             $('.sign_up').remove();
             $('.content').append("<div class=\"logout\"><a href=\"logout.php\">Выход</a></div>");
+            $('.greeting').text("Добро пожаловать, " + username);
         }
     });
 </script>
