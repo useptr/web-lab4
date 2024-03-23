@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
     <title>Главная</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -37,22 +38,30 @@
 </head>
 <body>
     <nav>
-        <div class="user-login">Гость</div>
-        <div class="sign_in"><a href="sign_in.html">Авторизация</a></div>
-        <div class="sign_up"><a href="sign_up.html">Регистрация</a></div>
-        <div class="logout"><a href="logout.php">Выход</a></div>
+        <div class="user-login ">Гость</div>
+        <div class="sign_in "><a href="sign_in.html">Авторизация</a></div>
+        <div class="sign_up "><a href="sign_up.html">Регистрация</a></div>
+        <div class="logout "><a href="logout.php">Выход</a></div>
     </nav>
+    <div class="container">
     <div class="content">
+        <div class="dropdown">
         <select id="first_dropdown">
+            <div class="content">
             <option value="">Выберите сервер</option>
             <option value="option1"></option>
             <option value="option2"></option>
+            </div>
         </select>
 
         <select id="second_dropdown">
+            <div class="content">
             <option value="">Выберите сначала опцию из первого списка</option>
+            </div>
         </select>
     </div>
+    </div>
+</div>
 </body>
 <script>
     $(document).ready(function() {
