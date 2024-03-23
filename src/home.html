@@ -85,7 +85,7 @@
             $(".user-login").text(username);
             $('.sign_in').remove();
             $('.sign_up').remove();
-            $('.content').append("<div class=\"logout\"><a href=\"logout.php\">Выход</a></div>");
+            $('nav').append("<div class=\"logout\"><a href=\"logout.php\">Выход</a></div>");
             $('.greeting').text("Добро пожаловать, " + username);
         }
     });
